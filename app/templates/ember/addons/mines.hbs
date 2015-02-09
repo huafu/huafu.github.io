@@ -29,7 +29,8 @@
         </div>
       </div>
       <div class="col-sm-6">
-        {{#sort-by value=repoSortingDesc key='npmPackage.updatedAt' desc=true}}last update{{/sort-by}}
+        {{#sort-by value=repoSortingDesc key='npmPackage.updatedAt' desc=true}}last
+          update{{/sort-by}}
       </div>
       <div class="col-sm-2 text-right">
         {{#sort-by value=repoSortingDesc key='npmPackage.downloadsTotal' desc=true}}
@@ -38,13 +39,16 @@
       </div>
     </div>
   </div>
-  {{#each repo in sortedRepos}}
+  {{#each repo in sortedRepos itemController=repoItemController}}
     {{npm-package
     pkg=repo.npmPackage
     repo=repo
-    class='list-group-item'
+    name=repo.name
+    isntCollapsed=repo.isHighlighted
     ignoreTags='ember-addon'
-    wrapTitleFor='ember'}}
+    wrapTitleFor='ember'
+    collapse='packageCollapsed'
+    expand='packageExpanded'}}
   {{else}}
     <div class="list-group-item list-group-item-warning">
       Fetching addons from my GitHub, please wait...

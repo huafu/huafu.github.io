@@ -11,7 +11,19 @@ export default Ember.Component.extend({
   /**
    * @inheritDoc
    */
-  classNames: ['npm-package'],
+  attributeBindings: ['name:data-package-name'],
+
+  /**
+   * The package name to be bound as attr
+   * @property name
+   * @type {string}
+   */
+  name: computed.reads('pkg.name'),
+
+  /**
+   * @inheritDoc
+   */
+  classNames: ['list-group-item', 'npm-package'],
 
   /**
    * @inheritDoc
@@ -114,11 +126,44 @@ export default Ember.Component.extend({
   repo: null,
 
   /**
+   * To know if we are collapsed or not
+   * @property _isCollapsed
+   * @type {boolean}
+   * @private
+   */
+  _isCollapsed: true,
+
+  /**
    * Are we collapsed?
    * @property isCollapsed
    * @type {boolean}
    */
-  isCollapsed: true,
+  isCollapsed: computed('_isCollapsed', function (key, value) {
+    if (arguments.length > 1) {
+      value = Boolean(value);
+      this.set('_isCollapsed', value);
+    }
+    else {
+      value = this.get('_isCollapsed');
+    }
+    return value;
+  }),
+
+  /**
+   * Are we expanded?
+   * @property isntCollapsed
+   * @type {boolean}
+   */
+  isntCollapsed: computed('_isCollapsed', function (key, value) {
+    if (arguments.length > 1) {
+      value = !value;
+      this.set('_isCollapsed', value);
+    }
+    else {
+      value = !this.get('_isCollapsed');
+    }
+    return value;
+  }),
 
   /**
    * Number of stars
@@ -167,7 +212,8 @@ export default Ember.Component.extend({
      * @method toggleCollapse
      */
     toggleCollapse: function () {
-      this.toggleProperty('isCollapsed');
+      var collapsed = this.toggleProperty('isCollapsed');
+      this.sendAction(collapsed ? 'collapse' : 'expand', this);
     }
   }
 

@@ -1,6 +1,32 @@
 import Ember from 'ember';
 import computed from '../utils/computed';
 
+// to enable bootstrap related stuffs
+Ember.View.reopen({
+  /**
+   * Setup TBS
+   *
+   * @method setupTwitterBootstrap
+   */
+  setupTwitterBootstrap:  Ember.on('didInsertElement', function () {
+    Ember.run.scheduleOnce('afterRender', this, '_setupTwitterBootstrap');
+  }),
+  _setupTwitterBootstrap: function () {
+    this.$('[title][data-toggle!="popover"]').tooltip();
+    this.$('[data-toggle="popover"]').popover();
+  },
+
+  /**
+   * Teardown TBS
+   *
+   * @method teardownTwitterBootstrap
+   */
+  teardownTwitterBootstrap: Ember.on('willDestroyElement', function () {
+    this.$('[data-toggle="popover"]').popover('destroy');
+    this.$('[title][data-toggle!="popover"]').tooltip('destroy');
+  })
+});
+
 /**
  * @class ApplicationView
  * @extends Ember.View

@@ -1,6 +1,9 @@
-<div class="list-group-item-heading row">
+<div class="list-group-item-heading row"
+  {{bind-attr data-content=pkg.description title=pkg.name}}
+     data-toggle="popover" data-trigger="hover" data-placement="top">
 
-  <div class="col-sm-4 clickable" {{action 'toggleCollapse'}} title="Show/hide details">
+  <div class="col-sm-4 clickable" {{action 'toggleCollapse'}}
+       title="Click to show/hide the details" data-placement="bottom">
     <h4>
       {{#if repo.iconUrl}}
         {{img-wrap src=repo.iconUrl class='repo-icon'}}
@@ -37,42 +40,49 @@
 
   <div class="col-sm-2 text-right">
     {{#if downloadsCount}}
-      <span class="badge" title="Total downloads">
+      <span class="badge" title="Total downloads" data-placement="bottom">
         {{downloadsCount}} <i class="glyphicon glyphicon-download-alt text-download"></i>
       </span>
     {{/if}}
     {{#if starsCount}}
-      <span class="badge" title="Total downloads">
+      <span class="badge" title="Total stargazers" data-placement="bottom">
         {{starsCount}} <i class="glyphicon glyphicon-star text-star"></i>
       </span>
     {{/if}}
     {{#if bestUrl}}
-      <a class="badge" title="Go to website" target="_blank" {{bind-attr href=bestUrl}}>
+      <a class="badge" title="Go to website"
+         data-placement="bottom"
+         target="_blank" {{bind-attr href=bestUrl}}>
         <i class="glyphicon glyphicon-new-window"></i>
+      </a>
+    {{/if}}
+    {{#if repo.newIssueUrl}}
+      <a class="badge" title="Report an issues or ask for a feature"
+         data-placement="bottom"
+         target="_blank" {{bind-attr href=repo.newIssueUrl}}>
+        <i class="glyphicon glyphicon-warning-sign"></i>
       </a>
     {{/if}}
   </div>
 
 </div>{{! /row }}
 
-<p class="list-group-item-text">
-  {{#if isCollapsed}}
+{{#unless isCollapsed}}
+  <p class="list-group-item-text">
 
+  {{markdown-section content=pkg.description}}
+
+  {{#bs-panel title='Description'}}
     {{markdown-section content=pkg.description}}
+  {{/bs-panel}}
 
-  {{else}}
+  {{#bs-panel title='README'}}
+    {{#if pkg.readme}}
+      {{markdown-section content=pkg.readme}}
+    {{else}}
+      <p class="text-warning">No README for this package</p>
+    {{/if}}
+  {{/bs-panel}}
 
-    {{#bs-panel title='Description'}}
-      {{markdown-section content=pkg.description}}
-    {{/bs-panel}}
-
-    {{#bs-panel title='README'}}
-      {{#if pkg.readme}}
-        {{markdown-section content=pkg.readme}}
-      {{else}}
-        <p class="text-warning">No README for this package</p>
-      {{/if}}
-    {{/bs-panel}}
-
-  {{/if}}
-</p>
+  </p>
+{{/unless}}

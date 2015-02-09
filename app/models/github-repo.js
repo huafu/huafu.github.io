@@ -198,6 +198,20 @@ export default DS.Model.extend(ModelWithCuDatesMixin, {
   npmPackage: DS.belongsTo('npm-package', {async: true}),
 
   /**
+   * The URL to the issues
+   * @property issuesUrl
+   * @type {string}
+   */
+  issuesUrl: computed.fmt('https://github.com/%@/issues', 'fullName'),
+
+  /**
+   * The URL to create a new issue
+   * @property newIssueUrl
+   * @type {string}
+   */
+  newIssueUrl: computed.fmt('https://github.com/%@/issues/new', 'fullName'),
+
+  /**
    * The icon of the repository
    * @property iconUrl
    * @type {string}

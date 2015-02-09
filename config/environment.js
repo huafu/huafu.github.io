@@ -14,7 +14,7 @@ module.exports = function (environment) {
       'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' *.googleapis.com maps.gstatic.com gist.github.com cdnjs.cloudflare.com",
       'font-src':    "'self' fonts.gstatic.com",
       'connect-src': "'self' api.github.com npm-registry-cors-proxy.herokuapp.com npm-stat.com", //"registry.npmjs.org",
-      'img-src':     "'self' *.gstatic.com *.googleapis.com s.gravatar.com nodei.co raw.githubusercontent.com",
+      'img-src':     "'self' *.gstatic.com *.googleapis.com s.gravatar.com nodei.co raw.githubusercontent.com travis-ci.org api.travis-ci.org",
       'style-src':   "'self' 'unsafe-inline' gist-assets.github.com fonts.googleapis.com cdnjs.cloudflare.com",
       'frame-src':   "ghbtns.com platform.twitter.com"
     },

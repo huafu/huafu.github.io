@@ -16,12 +16,12 @@ var BS_JS_FILES = [
   //'carousel',
   'collapse',
   'dropdown',
-  'tab'
+  'tab',
   //'transition',
   //'scrollspy',
   //'modal',
-  //'tooltip',
-  //'popover'
+  'tooltip',
+  'popover'
 ];
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
