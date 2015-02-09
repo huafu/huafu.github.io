@@ -54,5 +54,21 @@ export default [
     value:     '125 mou 7 Ban Nong Takian\nT. Chamni, A. Chamni\n31110 Buri-Ram\nThailand',
     createdAt: "2012-03-12T00:00:00.000Z",
     updatedAt: "2012-03-12T00:00:00.000Z"
+  },
+  {
+    id:        8,
+    person:    1,
+    type:      'facebook',
+    value:     '625388748',
+    createdAt: "2015-02-09T00:00:00.000Z",
+    updatedAt: "2015-02-09T00:00:00.000Z"
+  },
+  {
+    id:        9,
+    person:    1,
+    type:      'linkedin',
+    value:     'huafug',
+    createdAt: "2015-02-09T00:00:00.000Z",
+    updatedAt: "2015-02-09T00:00:00.000Z"
   }
 ];
