@@ -1,0 +1,38 @@
+body {
+  margin-top: $navbar-height + $grid-gutter-width;
+  margin-bottom: $bottom-navbar-height + $grid-gutter-width;
+}
+
+.navbar-brand img {
+  display: inline;
+}
+
+.navbar {
+  img {
+    height: 24px;
+  }
+}
+
+.navbar[role="footer"] {
+  min-height: 0;
+  height: $bottom-navbar-height;
+  .container {
+    margin-top: 10px;
+    color: $navbar-inverse-color;
+  }
+  .container, .container > * {
+    vertical-align: middle;
+  }
+  .ember-logo {
+    height: 18px;
+    margin-top: -10px;
+  }
+  .split-vertical {
+    height: $bottom-navbar-height - 20px;
+    display: inline-block;
+    top: 10px;
+    border-left: 1px solid $gray-lighter;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

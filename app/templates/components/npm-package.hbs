@@ -1,0 +1,78 @@
+<div class="list-group-item-heading row">
+
+  <div class="col-sm-4 clickable" {{action 'toggleCollapse'}} title="Show/hide details">
+    <h4>
+      {{#if repo.iconUrl}}
+        {{img-wrap src=repo.iconUrl class='repo-icon'}}
+      {{/if}}
+      {{title}}
+    </h4>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-xs-5">
+        <small class="label label-primary">
+          {{pkg.latestVersion}}
+        </small>
+        &nbsp;
+        <small>
+          updated {{ago pkg.updatedAt}}
+        </small>
+      </div>
+      <div class="col-xs-7">
+        <small>
+          {{#if tags.length}}
+            tags:
+            {{#each tag in tags}}
+              <span class="label label-default">{{tag}}</span>
+            {{/each}}
+          {{else}}
+            no tag
+          {{/if}}
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-2 text-right">
+    {{#if downloadsCount}}
+      <span class="badge" title="Total downloads">
+        {{downloadsCount}} <i class="glyphicon glyphicon-download-alt text-download"></i>
+      </span>
+    {{/if}}
+    {{#if starsCount}}
+      <span class="badge" title="Total downloads">
+        {{starsCount}} <i class="glyphicon glyphicon-star text-star"></i>
+      </span>
+    {{/if}}
+    {{#if bestUrl}}
+      <a class="badge" title="Go to website" target="_blank" {{bind-attr href=bestUrl}}>
+        <i class="glyphicon glyphicon-new-window"></i>
+      </a>
+    {{/if}}
+  </div>
+
+</div>{{! /row }}
+
+<p class="list-group-item-text">
+  {{#if isCollapsed}}
+
+    {{markdown-section content=pkg.description}}
+
+  {{else}}
+
+    {{#bs-panel title='Description'}}
+      {{markdown-section content=pkg.description}}
+    {{/bs-panel}}
+
+    {{#bs-panel title='README'}}
+      {{#if pkg.readme}}
+        {{markdown-section content=pkg.readme}}
+      {{else}}
+        <p class="text-warning">No README for this package</p>
+      {{/if}}
+    {{/bs-panel}}
+
+  {{/if}}
+</p>

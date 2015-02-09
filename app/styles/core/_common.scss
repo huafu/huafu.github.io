@@ -1,0 +1,17 @@
+.clickable {
+  cursor: pointer;
+}
+
+.img-wrap.error {
+  visibility: hidden;
+}
+
+.text-download {
+  color: $download-text;
+}
+.text-star {
+  color: $star-text;
+}
+.rounded-corners {
+  border-radius: $rounded-corners-radius;
+}

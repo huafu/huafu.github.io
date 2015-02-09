@@ -1,0 +1,54 @@
+<div class="jumbotron">
+  <img src="/images/ember-logo.png" alt="EmberJS logo"
+       class="pull-right"/>
+
+  <h1>My EmberJS addons</h1>
+
+  <p>
+    Here is a list of my {{repos.length}} EmberJS addons. They're automatically fetched from my
+    GitHub profile so the list is always up to date.
+  </p>
+
+  <p>
+    While I also have contributed to some other addons, the ones listed here are only those I
+    created
+    on my own.
+  </p>
+</div>
+
+<div class="list-group">
+  <div class="list-group-item">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="row">
+          <div class="col-xs-6">
+            Sort by:
+          </div>
+          <div class="col-xs-6 text-right">
+            {{#sort-by value=repoSortingDesc key='emberCleanedName'}}name{{/sort-by}}
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        {{#sort-by value=repoSortingDesc key='npmPackage.updatedAt' desc=true}}last update{{/sort-by}}
+      </div>
+      <div class="col-sm-2 text-right">
+        {{#sort-by value=repoSortingDesc key='npmPackage.downloadsTotal' desc=true}}
+          downloads{{/sort-by}}
+        | {{#sort-by value=repoSortingDesc key='stargazersCount' desc=true}}stars{{/sort-by}}
+      </div>
+    </div>
+  </div>
+  {{#each repo in sortedRepos}}
+    {{npm-package
+    pkg=repo.npmPackage
+    repo=repo
+    class='list-group-item'
+    ignoreTags='ember-addon'
+    wrapTitleFor='ember'}}
+  {{else}}
+    <div class="list-group-item list-group-item-warning">
+      Fetching addons from my GitHub, please wait...
+    </div>
+  {{/each}}
+</div>

@@ -1,0 +1,26 @@
+.npm-package {
+  background-color: $panel-default-heading-bg;
+  &:nth-child(odd) {
+    background-color: darken($panel-default-heading-bg, 5%);
+  }
+  &.isnt-collapsed {
+    background-color: $panel-success-heading-bg;
+  }
+  &.isnt-collapsed:nth-child(odd) {
+    background-color: darken($panel-success-heading-bg, 5%);
+  }
+  .repo-icon {
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: $rounded-corners-radius;
+    }
+  }
+  .list-group-item-heading {
+    h4 {
+      .wrapped {
+        opacity: 0.3;
+      }
+    }
+  }
+}
