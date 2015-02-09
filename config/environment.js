@@ -32,6 +32,8 @@ module.exports = function (environment) {
       }
     },
 
+    devFixtures: true,
+
     googleMap: {
       lazyLoad: true
     },
