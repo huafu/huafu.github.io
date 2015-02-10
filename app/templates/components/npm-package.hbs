@@ -49,20 +49,22 @@
         {{starsCount}} <i class="glyphicon glyphicon-star text-star"></i>
       </span>
     {{/if}}
+    <span class="badge">
     {{#if bestUrl}}
-      <a class="badge" title="Go to website"
+      <a title="Go to website"
          data-placement="bottom"
          target="_blank" {{bind-attr href=bestUrl}}>
         <i class="glyphicon glyphicon-new-window"></i>
       </a>
     {{/if}}
-    {{#if repo.newIssueUrl}}
-      <a class="badge" title="Report an issues or ask for a feature"
-         data-placement="bottom"
-         target="_blank" {{bind-attr href=repo.newIssueUrl}}>
-        <i class="glyphicon glyphicon-warning-sign"></i>
-      </a>
-    {{/if}}
+      {{#if repo.newIssueUrl}}
+        <a title="Report an issues or ask for a feature"
+           data-placement="bottom"
+           target="_blank" {{bind-attr href=repo.newIssueUrl}}>
+          <i class="glyphicon glyphicon-warning-sign"></i>
+        </a>
+      {{/if}}
+    </span>
   </div>
 
 </div>{{! /row }}

@@ -1,6 +1,6 @@
 .npm-package {
   background-color: $panel-default-heading-bg;
-  .list-group-item-heading{
+  .list-group-item-heading {
     h4 {
       margin: 0;
     }
@@ -26,6 +26,11 @@
       .wrapped {
         opacity: 0.3;
       }
+    }
+  }
+  .badge {
+    > a, > a:hover, > a:visited, > a:focus {
+      color: inherit;
     }
   }
 }
