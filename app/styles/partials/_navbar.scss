@@ -30,7 +30,7 @@ body {
   .split-vertical {
     height: $bottom-navbar-height - 20px;
     display: inline-block;
-    top: 10px;
+    margin-top: -10px;
     border-left: 1px solid $gray-lighter;
     margin-left: 10px;
     margin-right: 10px;

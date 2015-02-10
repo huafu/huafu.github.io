@@ -2,10 +2,6 @@
   cursor: pointer;
 }
 
-.img-wrap.error {
-  visibility: hidden;
-}
-
 .text-download {
   color: $download-text;
 }
@@ -14,4 +10,7 @@
 }
 .rounded-corners {
   border-radius: $rounded-corners-radius;
+}
+span.img-wrap > img {
+  border-radius: inherit;
 }

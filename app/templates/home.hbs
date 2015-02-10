@@ -1,6 +1,5 @@
 <div class="jumbotron">
-  <img {{bind-attr src=me.photoUrl alt=me.displayName}}
-       class="img-circle pull-right"/>
+  {{img-wrap src=me.photoUrl alt=me.displayName class='img-circle pull-right'}}
   <h1>Hello!</h1>
   <p>
     I am <strong>{{me.displayName}}</strong>, a senior frontend and backend developer. I love
