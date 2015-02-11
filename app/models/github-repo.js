@@ -212,6 +212,13 @@ export default DS.Model.extend(ModelWithCuDatesMixin, {
   newIssueUrl: computed.fmt('https://github.com/%@/issues/new', 'fullName'),
 
   /**
+   * Add star URL
+   * @property stargazeUrl
+   * @type {string}
+   */
+  stargazeUrl: computed.fmt('https://github.com/%@', 'fullName'),
+
+  /**
    * The icon of the repository
    * @property iconUrl
    * @type {string}

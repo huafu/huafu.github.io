@@ -1,5 +1,8 @@
 /* jshint node: true */
 
+var NPM_JSON = require('../package.json');
+var BOWER_JSON = require('../bower.json');
+
 module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'huafu-homepage',
@@ -8,6 +11,12 @@ module.exports = function (environment) {
     // for github page to work correctly, it needs a hash location type
     locationType: process.env.EMBER_CLI_LOCATION_TYPE || 'hash',
 
+    poweredBy: {
+      npm: NPM_JSON.devDependencies,
+      bower: BOWER_JSON.dependencies
+    },
+
+    version: NPM_JSON.version,
 
     contentSecurityPolicy: {
       'default-src': "'none'",
@@ -16,7 +25,7 @@ module.exports = function (environment) {
       'connect-src': "'self' api.github.com npm-registry-cors-proxy.herokuapp.com npm-stat.com", //"registry.npmjs.org",
       'img-src':     "'self' *.gstatic.com *.googleapis.com s.gravatar.com nodei.co raw.githubusercontent.com travis-ci.org api.travis-ci.org",
       'style-src':   "'self' 'unsafe-inline' gist-assets.github.com fonts.googleapis.com cdnjs.cloudflare.com",
-      'frame-src':   "ghbtns.com platform.twitter.com"
+      'frame-src':   "ghbtns.com platform.twitter.com www.facebook.com"
     },
 
     marked: {
@@ -39,8 +48,8 @@ module.exports = function (environment) {
     },
 
     imgManager: {
-      loadingSrc: '/images/loading.gif',
-      errorSrc: '/images/no-image.png'
+      loadingSrc: '/assets/images/loading.gif',
+      errorSrc: '/assets/images/no-image.png'
     },
 
     EmberENV: {

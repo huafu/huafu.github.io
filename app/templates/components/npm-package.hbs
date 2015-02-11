@@ -2,53 +2,35 @@
   {{bind-attr data-content=pkg.description title=pkg.name}}
      data-toggle="popover" data-trigger="hover" data-placement="top">
 
-  <div class="col-sm-4 clickable" {{action 'toggleCollapse'}}
+  <div class="col-sm-6 clickable" {{action 'toggleCollapse'}}
        title="Click to show/hide the details" data-placement="bottom">
-    <h4>
+    <strong>
       {{#if repo.iconUrl}}
         {{img-wrap src=repo.iconUrl class='repo-icon'}}
       {{/if}}
       {{title}}
-    </h4>
+    </strong>
   </div>
 
-  <div class="col-sm-6">
-    <div class="row">
-      <div class="col-xs-5">
-        <small class="label label-primary">
-          {{pkg.latestVersion}}
-        </small>
-        &nbsp;
-        <small>
-          updated {{ago pkg.updatedAt}}
-        </small>
-      </div>
-      <div class="col-xs-7">
-        <small>
-          {{#if tags.length}}
-            tags:
-            {{#each tag in tags}}
-              <span class="label label-default">{{tag}}</span>
-            {{/each}}
-          {{else}}
-            no tag
-          {{/if}}
-        </small>
-      </div>
-    </div>
+  <div class="col-sm-3">
+    <small class="label label-primary">
+      {{pkg.latestVersion}}
+    </small>
+    &nbsp;
+    <small>
+      updated {{ago pkg.updatedAt}}
+    </small>
   </div>
 
-  <div class="col-sm-2 text-right">
-    {{#if downloadsCount}}
-      <span class="badge" title="Total downloads" data-placement="bottom">
-        {{downloadsCount}} <i class="glyphicon glyphicon-download-alt text-download"></i>
-      </span>
-    {{/if}}
-    {{#if starsCount}}
-      <span class="badge" title="Total stargazers" data-placement="bottom">
-        {{starsCount}} <i class="glyphicon glyphicon-star text-star"></i>
-      </span>
-    {{/if}}
+  <div class="col-sm-3 text-right">
+    <a class="badge" title="Total downloads" data-placement="bottom" {{bind-attr href=pkg.url}}
+       target="_blank">
+      {{downloadsCount}} <i class="glyphicon glyphicon-download-alt text-download"></i>
+    </a>
+    <a class="badge" title="Total stargazers" target="_blank"
+       data-placement="bottom" {{bind-attr href=repo.stargazeUrl}}>
+      {{starsCount}} <i class="glyphicon glyphicon-star text-star"></i>
+    </a>
     <span class="badge">
     {{#if bestUrl}}
       <a title="Go to website"
@@ -72,8 +54,54 @@
 {{#unless isCollapsed}}
   <p class="list-group-item-text">
 
-  {{#bs-panel title='Description'}}
-    {{markdown-section content=pkg.description}}
+  {{#bs-panel title='Details'}}
+    {{#if repo.iconUrl}}
+      {{img-wrap src=repo.iconUrl class='repo-icon'}}
+    {{/if}}
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><strong>{{pkg.name}}</strong></dd>
+
+      <dt>Latest version</dt>
+      <dd>
+        <code>{{pkg.latestVersion}}</code>
+        ({{moment pkg.updatedAt 'LLLL'}})
+      </dd>
+
+      {{#if pkg.isPoweringApp}}
+        <dt>Version used here</dt>
+        <dd>this website is using <code>{{pkg.versionPoweringApp}}</code></dd>
+      {{/if}}
+
+      <dt>Tags</dt>
+      <dd>
+        {{#each tag in tags}}
+          <span class="label label-default">{{tag}}</span>
+        {{else}}
+          no tag
+        {{/each}}
+      </dd>
+
+      <dt>Description</dt>
+      <dd>
+        {{markdown-section content=pkg.description}}
+      </dd>
+
+      <dt>Total downloads</dt>
+      <dd>
+        {{pkg.downloadsTotal}}
+      </dd>
+
+      <dt>Downloads last 30 days</dt>
+      <dd>
+        {{pkg.downloadsLastThirtyDays}}
+      </dd>
+
+      <dt>Downloads last 7 days</dt>
+      <dd>
+        {{pkg.downloadsLastSevenDays}}
+      </dd>
+    </dl>
   {{/bs-panel}}
 
   {{#bs-panel title='README'}}

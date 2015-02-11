@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 import ModelWithCuDatesMixin from '../mixins/model-with-cu-dates';
 import computed from '../utils/computed';
+import ENV from '../config/environment';
 
 /**
  * @class NpmPackage
@@ -118,6 +119,21 @@ export default DS.Model.extend(ModelWithCuDatesMixin, {
    * @property isEmberAddon
    * @type {boolean}
    */
-  isEmberAddon: computed.contains('keywords', 'ember-addon')
+  isEmberAddon: computed.contains('keywords', 'ember-addon'),
 
+  /**
+   * Version powering this website
+   * @property versionPoweringApp
+   * @type {string}
+   */
+  versionPoweringApp: computed('name', function () {
+    return ENV.poweredBy.npm[this.get('name')] || null;
+  }),
+
+  /**
+   * Is it used on this website?
+   * @property isPoweringApp
+   * @type {boolean}
+   */
+  isPoweringApp: computed.bool('versionPoweringApp')
 });

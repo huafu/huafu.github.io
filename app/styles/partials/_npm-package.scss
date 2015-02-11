@@ -1,10 +1,4 @@
 .npm-package {
-  background-color: $panel-default-heading-bg;
-  .list-group-item-heading {
-    h4 {
-      margin: 0;
-    }
-  }
   &:nth-child(odd) {
     background-color: darken($panel-default-heading-bg, 5%);
   }
@@ -14,20 +8,30 @@
   &.isnt-collapsed:nth-child(odd) {
     background-color: darken($panel-success-heading-bg, 5%);
   }
-  .repo-icon {
-    img {
-      width: 32px;
-      height: 32px;
-      border-radius: $rounded-corners-radius;
+  .list-group-item-heading {
+    .repo-icon {
+      img {
+        height: 32px;
+      }
+    }
+    .wrapped {
+      opacity: 0.3;
     }
   }
-  .list-group-item-heading {
-    h4 {
-      .wrapped {
-        opacity: 0.3;
+  .list-group-item-text {
+    .repo-icon {
+      position: absolute;
+      right: $grid-gutter-width;
+      margin-top: - $grid-gutter-width;
+      img {
+        height: 80px;
       }
     }
   }
+  .repo-icon {
+    border-radius: $rounded-corners-radius;
+  }
+  background-color: $panel-default-heading-bg;
   .badge {
     > a, > a:hover, > a:visited, > a:focus {
       color: inherit;

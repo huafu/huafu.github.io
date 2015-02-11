@@ -1,0 +1,13 @@
+.social-button {
+  border: 0;
+  height: 20px;
+  &.github-follow {
+    width: 110px;
+  }
+  &.twitter-follow {
+    width: 120px;
+  }
+  &.facebook-like {
+    width: 94px;
+  }
+}
