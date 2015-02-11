@@ -13,7 +13,15 @@ export default DS.ActiveModelAdapter.extend({
   /**
    * @inheritDoc
    */
-  host: '//api.github.com',
+  host: 'https://api.github.com',
+
+  /**
+   * @inheritDoc
+   */
+  headers: {
+    Accept: 'application/vnd.github.v3+json'
+  },
+
 
   /**
    * @inheritDoc

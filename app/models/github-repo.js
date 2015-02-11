@@ -223,7 +223,7 @@ export default DS.Model.extend(ModelWithCuDatesMixin, {
    * @property iconUrl
    * @type {string}
    */
-  iconUrl: computed.fmt('//raw.githubusercontent.com/%@/master/icon.png', 'fullName'),
+  iconUrl: computed.fmt('https://raw.githubusercontent.com/%@/master/icon.png', 'fullName'),
 
   /**
    * Ember cleaned name

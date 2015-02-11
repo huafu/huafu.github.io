@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import computed from '../utils/computed';
+import ENV from '../config/environment';
 
 // to enable bootstrap related stuffs
 Ember.View.reopen({
@@ -36,6 +37,13 @@ export default Ember.View.extend({
    * @inheritDoc
    */
   classNameBindings: ['routeClasses'],
+
+  /**
+   * The version of our app
+   * @property version
+   * @type {string}
+   */
+  version: ENV.version,
 
   /**
    * Classes for the current route
