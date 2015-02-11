@@ -27,12 +27,4 @@ body {
     height: 18px;
     margin-top: -10px;
   }
-  .split-vertical {
-    height: $bottom-navbar-height - 20px;
-    display: inline-block;
-    margin-top: -10px;
-    border-left: 1px solid $gray-lighter;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
 }

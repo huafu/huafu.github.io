@@ -44,6 +44,6 @@ export default Ember.View.extend({
    */
   routeClasses: computed('controller.currentPath', function () {
     var route = this.get('controller.currentPath') || 'index';
-    return 'route-' + route.split('.').join('$');
+    return 'route-' + route.split('.').join('_');
   })
 });

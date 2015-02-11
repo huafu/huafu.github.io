@@ -25,7 +25,7 @@ module.exports = function (environment) {
       'connect-src': "'self' api.github.com npm-registry-cors-proxy.herokuapp.com npm-stat.com", //"registry.npmjs.org",
       'img-src':     "'self' *.gstatic.com *.googleapis.com s.gravatar.com nodei.co raw.githubusercontent.com travis-ci.org api.travis-ci.org",
       'style-src':   "'self' 'unsafe-inline' gist-assets.github.com fonts.googleapis.com cdnjs.cloudflare.com",
-      'frame-src':   "ghbtns.com platform.twitter.com www.facebook.com"
+      'frame-src':   "ghbtns.com platform.twitter.com *.facebook.com"
     },
 
     marked: {
@@ -50,6 +50,10 @@ module.exports = function (environment) {
     imgManager: {
       loadingSrc: '/assets/images/loading.gif',
       errorSrc: '/assets/images/no-image.png'
+    },
+
+    github: {
+      clientId: '40c0c7da2c1ebe1f0b2b'
     },
 
     EmberENV: {
