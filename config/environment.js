@@ -23,7 +23,7 @@ module.exports = function (environment) {
       'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' *.googleapis.com maps.gstatic.com gist.github.com cdnjs.cloudflare.com",
       'font-src':    "'self' fonts.gstatic.com",
       'connect-src': "'self' https://api.github.com npm-registry-cors-proxy.herokuapp.com npm-stat.com", //"registry.npmjs.org",
-      'img-src':     "'self' *.gstatic.com *.googleapis.com https://s.gravatar.com s.gravatar.com nodei.co raw.githubusercontent.com travis-ci.org api.travis-ci.org https://www.paypalobjects.com",
+      'img-src':     "'self' *.gstatic.com *.googleapis.com https://s.gravatar.com s.gravatar.com nodei.co https://raw.githubusercontent.com travis-ci.org api.travis-ci.org https://www.paypalobjects.com",
       'style-src':   "'self' 'unsafe-inline' gist-assets.github.com fonts.googleapis.com cdnjs.cloudflare.com",
       'frame-src':   "ghbtns.com platform.twitter.com https://www.facebook.com www.facebook.com"
     },
