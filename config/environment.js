@@ -12,7 +12,7 @@ module.exports = function (environment) {
     locationType: process.env.EMBER_CLI_LOCATION_TYPE || 'hash',
 
     poweredBy: {
-      npm: NPM_JSON.devDependencies,
+      npm:   NPM_JSON.devDependencies,
       bower: BOWER_JSON.dependencies
     },
 
@@ -49,7 +49,7 @@ module.exports = function (environment) {
 
     imgManager: {
       loadingSrc: '/assets/images/loading.gif',
-      errorSrc: '/assets/images/no-image.png'
+      errorSrc:   '/assets/images/no-image.png'
     },
 
     github: {
@@ -91,7 +91,9 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.googleAnalytics = {
+      webPropertyId: 'UA-39322726-3'
+    };
   }
 
   return ENV;

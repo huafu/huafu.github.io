@@ -1,5 +1,6 @@
 import config from './config/environment';
 import route from 'ember-enhanced-router/route';
+import GooglePageviewMixin from './mixins/google-pageview';
 
 export default route(null, '@huafu_g\'s').routes(
   route('home@/', false),
@@ -14,7 +15,11 @@ export default route(null, '@huafu_g\'s').routes(
   route('contact'),
 
   route('catchall@*', 'Nothing Here!')
-).toRouter({location: config.locationType});
+).toRouter(
+  GooglePageviewMixin, {
+    location: config.locationType
+  }
+);
 
 
 
