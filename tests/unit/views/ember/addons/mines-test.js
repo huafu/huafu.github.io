@@ -6,7 +6,7 @@ import {
 moduleFor('view:ember/addons/mines', 'EmberAddonsMinesView');
 
 // Replace this with your real tests.
-test('it exists', function() {
+test('it exists', function(assert) {
   var view = this.subject();
-  ok(view);
+  assert.ok(view);
 });
