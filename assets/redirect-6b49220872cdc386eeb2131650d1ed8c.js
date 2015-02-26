@@ -1,0 +1,1 @@
+!function(t,e){return e.test(t.href)&&(t.href=t.href.replace(e,"http"))}(location,/^https/);
