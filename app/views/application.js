@@ -2,15 +2,33 @@ import Ember from 'ember';
 import computed from '../utils/computed';
 import ENV from '../config/environment';
 
+var on = Ember.on;
+var $ = Ember.$;
+var run = Ember.run;
+var scheduleOnce = run.scheduleOnce;
+var bind = run.bind;
+
 // to enable bootstrap related stuffs
 Ember.View.reopen({
+
+  /**
+   * Removes the application loader once we get into the DOM
+   *
+   * @method removeApplicationLoadingDiv
+   */
+  removeApplicationLoadingDiv: on('didInsertElement', function () {
+    var $loading = $('#application-loader');
+    $loading.fadeOut(bind($loading, 'remove'));
+  }),
+
+
   /**
    * Setup TBS
    *
    * @method setupTwitterBootstrap
    */
-  setupTwitterBootstrap:  Ember.on('didInsertElement', function () {
-    Ember.run.scheduleOnce('afterRender', this, '_setupTwitterBootstrap');
+  setupTwitterBootstrap:  on('didInsertElement', function () {
+    scheduleOnce('afterRender', this, '_setupTwitterBootstrap');
   }),
   _setupTwitterBootstrap: function () {
     this.$('[title][data-toggle!="popover"]').tooltip();
@@ -22,7 +40,7 @@ Ember.View.reopen({
    *
    * @method teardownTwitterBootstrap
    */
-  teardownTwitterBootstrap: Ember.on('willDestroyElement', function () {
+  teardownTwitterBootstrap: on('willDestroyElement', function () {
     this.$('[data-toggle="popover"]').popover('destroy');
     this.$('[title][data-toggle!="popover"]').tooltip('destroy');
   })
