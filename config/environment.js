@@ -20,7 +20,7 @@ module.exports = function (environment) {
 
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' *.googleapis.com maps.gstatic.com gist.github.com cdnjs.cloudflare.com",
+      'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' *.googleapis.com maps.gstatic.com gist.github.com cdnjs.cloudflare.com www.google-analytics.com",
       'font-src':    "'self' fonts.gstatic.com",
       'connect-src': "'self' https://api.github.com npm-registry-cors-proxy.herokuapp.com npm-stat.com", //"registry.npmjs.org",
       'img-src':     "'self' *.gstatic.com *.googleapis.com https://s.gravatar.com s.gravatar.com nodei.co https://raw.githubusercontent.com travis-ci.org api.travis-ci.org https://www.paypalobjects.com",
@@ -40,8 +40,6 @@ module.exports = function (environment) {
         css: false // disable inclusion of the css (can be the URL to some other CDN)
       }
     },
-
-    devFixtures: true,
 
     googleMap: {
       lazyLoad: true
@@ -67,6 +65,7 @@ module.exports = function (environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      devFixtures: true
     }
   };
 

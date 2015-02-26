@@ -1,6 +1,4 @@
-.loader-walk {
-  width: 100px;
-  height: 40px;
+.absolute-center {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -8,6 +6,18 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+#application-loader {
+  text-align: center;
+}
+
+.loader-walk {
+  width: 100px;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+}
+
 .loader-walk > div {
   content: "";
   width: 20px;
@@ -19,23 +29,38 @@
   animation: loading-animation 2s linear infinite;
 }
 
-.loader-walk > div:nth-of-type(1) { -webkit-animation-delay: -.4s; animation-delay: -.4s; }
-.loader-walk > div:nth-of-type(2) { -webkit-animation-delay: -.8s; animation-delay: -.8s; }
-.loader-walk > div:nth-of-type(3) { -webkit-animation-delay: -1.2s; animation-delay: -1.2s; }
-.loader-walk > div:nth-of-type(4) { -webkit-animation-delay: -1.6s; animation-delay: -1.6s; }
+.loader-walk > div:nth-of-type(1) {
+  -webkit-animation-delay: -.4s;
+  animation-delay: -.4s;
+}
+
+.loader-walk > div:nth-of-type(2) {
+  -webkit-animation-delay: -.8s;
+  animation-delay: -.8s;
+}
+
+.loader-walk > div:nth-of-type(3) {
+  -webkit-animation-delay: -1.2s;
+  animation-delay: -1.2s;
+}
+
+.loader-walk > div:nth-of-type(4) {
+  -webkit-animation-delay: -1.6s;
+  animation-delay: -1.6s;
+}
 
 @-webkit-keyframes loading-animation {
   0% {
     left: 100px;
-    top:0
+    top: 20px
   }
   80% {
     left: 0;
-    top:0;
+    top: 20px;
   }
   85% {
     left: 0;
-    top: -20px;
+    top: 0;
     width: 20px;
     height: 20px;
   }
@@ -45,27 +70,28 @@
   }
   95% {
     left: 100px;
-    top: -20px;
+    top: 0;
     width: 20px;
     height: 20px;
   }
   100% {
     left: 100px;
-    top: 0;
+    top: 20px;
   }
 }
+
 @keyframes loading-animation {
   0% {
     left: 100px;
-    top:0
+    top: 20px
   }
   80% {
     left: 0;
-    top:0;
+    top: 20px;
   }
   85% {
     left: 0;
-    top: -20px;
+    top: 0;
     width: 20px;
     height: 20px;
   }
@@ -75,12 +101,12 @@
   }
   95% {
     left: 100px;
-    top: -20px;
+    top: 0;
     width: 20px;
     height: 20px;
   }
   100% {
     left: 100px;
-    top: 0;
+    top: 20px;
   }
 }
